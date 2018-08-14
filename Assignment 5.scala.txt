@@ -1,0 +1,117 @@
+TASK 1: 
+
+package com.test//change
+
+import scala.collection.immutable._ 
+
+object Listscalafile {
+  
+  
+  def main(args:Array[String]){
+  
+  val listdata : List[String] =  List("alpha","gamma","omega","zeta","beta") ;
+  println("list of tuples = "+listdata );
+  
+  
+  val listgreater4 = listdata.count(item=>item.length>4);
+  println("list count " +listgreater4);
+  
+  val lengthofeachword = listdata.map(item=>item.length);
+  println( "the list of string to a list of integers = "+ lengthofeachword);
+  
+  
+  val stringcontainsm = listdata.count(item=>item.contains("m"));
+  println("the count of all strings which contain alphabet ‘m’ = "+ stringcontainsm);
+  
+  val stringstartswitha = listdata.count(item=>item.startsWith("a"));
+  println( "the count of all strings which start with the alphabet ‘a’ = "+stringstartswitha);
+  
+  }
+}
+
+Task 3 : Fibonnaci
+
+package com.test
+
+object fibonacci {
+  
+  
+def fib1( n : Int) : Int = n match {
+   case 0 | 1 => n
+   case _ => fib1( n-1 ) + fib1( n-2 )
+}
+
+def fib2( n : Int ) : Int = {
+  var a = 0
+  var b = 1
+  var i = 0	  
+ 
+  while( i < n ) {
+    val c = a + b
+    a = b
+    b = c
+    i = i + 1
+  } 
+  return a
+}
+def fibSeq(n: Int): List[Int] = {
+    var ret = scala.collection.mutable.ListBuffer[Int](0, 1)
+    while (ret(ret.length - 1) < n) {
+      val temp = ret(ret.length - 1) + ret(ret.length - 2)
+      if (temp >= n) {
+        return ret.toList
+      }
+      ret += temp
+    }
+    ret.toList
+  }
+def nthFib(n: Int): Int = {
+  var x = 0
+  var y = 1
+  for (_ <- 1 until n) {
+    val temp = x + y
+    x = y
+    y = temp
+  }
+  y
+}
+def fib_rec(n:Long):Long = {
+  def fib_recursion(n:Long, a:Long, b:Long):Long = {
+    if(n == 0) a
+    else fib_recursion(n - 1, b, a + b)
+  }
+  return fib_recursion(n, 0, 1)
+}
+  
+  def main(args: Array[String]) {
+println("fibonacci series of = "+ fib1(10))
+println("fibonacci series of ="+fib2(20))
+println("list if fib series="+fibSeq(15))
+println("nth fibonacci value using for loop = "+nthFib(7))
+println("nth fibonacci value using recursion function ="+fib_rec(18))
+    }
+}
+
+TASK 3: 
+
+package com.test
+
+object gcdCal {
+  
+  def gcd(a: Int,b: Int): Int = {
+
+       if(b ==0) a else gcd(b, a%b)
+
+    }
+    def main(args: Array[String]) {
+
+        println(gcd(18,27))
+
+    }
+}
+
+
+
+
+
+  
